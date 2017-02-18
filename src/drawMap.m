@@ -4,10 +4,13 @@
 function mapImage = drawMap(backgroundImage)
 close;
 img = imread(backgroundImage);
-%RGB = insertMarker(img,[100 100]);
-subimage(img);
 
-imagesc(100,100,img);
+%RGB = insertMarker(img,[100 100]);
+
+imagesc(0,100,img);
+hold on;
+imagesc(200,200,img);
+
 %pos = [120 248;195 246; 195 312;120 312];
 %color = {'red','white','green','magenta'};
 %RGB = insertMarker(RGB,pos,'x','color',color,'size',10);
