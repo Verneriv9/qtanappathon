@@ -18,8 +18,6 @@ getMapCells(output,scale);
 
 getCoastCells(edgemask,scale);
 
-input('wait');
-
 imshow(edgemask);
 
 end
