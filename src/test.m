@@ -1,4 +1,4 @@
-function [output,boundaries] = test(inputImage,scale)
+function [output] = test(inputImage,scale)
 %eliminates blue elements in the image
 output = eliminateblue(inputImage); 
 
@@ -11,7 +11,12 @@ imshow(output);
 
 edgemask = blockEdges(output,scale);
 
+getMapCells(output,scale);
+
+getCoastCells(edgemask,scale);
+
+input('wait');
+
 imshow(edgemask);
 
-boundaries = bwboundaries(output,8,'holes');
 end
