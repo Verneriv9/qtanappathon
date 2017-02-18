@@ -1,9 +1,9 @@
-function output = blockEdges(finalBinaryMap)
+function output = blockEdges(finalBinaryMap,scale)
 
 %find the border of the coastlines
-partialEdgeMask = partialBlockEdge(finalBinaryMap);
+partialEdgeMask = partialBlockEdge(finalBinaryMap,scale);
 %find the border of the border, for centering purposes
-partialEdgeMask = partialBlockEdge(partialEdgeMask);
+partialEdgeMask = partialBlockEdge(partialEdgeMask,scale);
 %this masks out the improper water-inhabited border
 %by using an element-wise multiplication of the coastline
 %psuedo-border and the actual finalBinaryMap that represents the
@@ -18,7 +18,7 @@ output = partialEdgeMask.*finalBinaryMap;
 end
 
 
-function partialMask = partialBlockEdge(finalBinaryMap)
+function partialMask = partialBlockEdge(finalBinaryMap,scale)
 %analyzes 8x8 pixel blocks and traces edges for boundaries,
 %then makes a line with radius 8px (16x16 blocks, basically)
 %and draws it over the EXACT line of the border.
@@ -30,7 +30,7 @@ function partialMask = partialBlockEdge(finalBinaryMap)
 maskedFinalMap = boundarymask(finalBinaryMap);
 blockMaskAfterNormalMask = @blockEdgeMasker;
 maskedBlock = @(block_struct) blockMaskAfterNormalMask(block_struct.data); 
-partialMask = blockproc(maskedFinalMap, [8 8], maskedBlock); 
+partialMask = blockproc(maskedFinalMap, [scale scale], maskedBlock); 
 
 end
 
