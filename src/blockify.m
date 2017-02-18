@@ -1,3 +1,6 @@
+%%%Made in Matlab by Darien Sokolov for the Arcanity group for the Spring Appathon, 2017
+%%%Group Members:  Sarah Austin, Darrel Donald, Darien Sokolov, Verneri Thomason
+
 function output = blockify(colorSegImage,scale)
 %analyzes blocks of 16x16 pixels and changes the block color to the average
 %of the colors present. "Lost" pixels at the edges of the image a small and

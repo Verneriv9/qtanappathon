@@ -1,3 +1,6 @@
+%%%Made in Matlab by Darien Sokolov for the Arcanity group for the Spring Appathon, 2017
+%%%Group Members:  Sarah Austin, Darrel Donald, Darien Sokolov, Verneri Thomason
+
 function [BW,maskedRGBImage] = createMask(RGB)
 %createMask  Threshold RGB image using auto-generated code from colorThresholder app.
 %  [BW,MASKEDRGBIMAGE] = createMask(RGB) thresholds image RGB using
