@@ -37,17 +37,21 @@ int main (void){
         //printf("%d,%d\n",mapCells[i].xcoord,mapCells[i].ycoord);
     }
     printf("youre good");
-    while (fscanf(f2,"%3[^,],%s\n",charx,chary)!=EOF){
+    int fileIdx = fscanf(f2,"%3[^,],%s\n",charx,chary);
+    while (fileIdx != EOF){
         //printf("1");
         for (i=0;i!=sizeof(mapCells);i++){
+                printf("mapCells exists\n");
             //printf("2");
             if (atoi(charx)==mapCells[i].xcoord&&atoi(chary)==mapCells[i].ycoord){
                 //printf("3");
                 mapCells[i].isCoastCell=true;
+                fileIdx = fscanf(f2,"%3[^,],%s\n",charx,chary);
+                printf("match\n");
             }
         printf("\n\n%d\n\n",(i));
         }
-        printf("miss good booty");
+        //printf("miss good booty");
     }
     printf("youre good");
     for (i=0;i!=sizeof(mapCells);i++){
