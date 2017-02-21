@@ -21,14 +21,14 @@ int main (void){
     int i=0;
     int j=0;
     struct mapCell *ptr;
-    int newlines=0;
+    int NUM_MAPCELLS=0;
     char parser;
     char charx[10],chary[10];
     while (fscanf(f1,"%c",&parser)!=EOF){
         if (parser=='\n')
-            newlines++;
+            NUM_MAPCELLS++;
     }
-    struct mapCell mapCells[newlines];
+    struct mapCell mapCells[NUM_MAPCELLS];
     rewind(f1);
     while (fscanf(f1,"%3[^,],%s\n",charx,chary)!=EOF){
         i++;
@@ -38,8 +38,8 @@ int main (void){
     printf("youre good");
     int fileIdx = fscanf(f2,"%3[^,],%s\n",charx,chary);
     while (fileIdx != EOF){
-        //printf("1");
-        for (i=0;i!=sizeof(mapCells);i++){
+        printf("%d",NUM_MAPCELLS);
+        for (i=0;i!=NUM_MAPCELLS;i++){
                 printf("mapCells exists\n");
             //printf("2");
             if (atoi(charx)==mapCells[i].xcoord&&atoi(chary)==mapCells[i].ycoord){
@@ -47,7 +47,7 @@ int main (void){
                 fileIdx = fscanf(f2,"%3[^,],%s\n",charx,chary);
                 printf("match\n");
             }
-        printf("\n\n%d\n\n",(i));
+            printf("\n\n%d\n\n",(i));
         }
         //printf("miss good booty");
     }
