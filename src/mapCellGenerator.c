@@ -22,11 +22,10 @@ int main (void){
     int j=0;
     struct mapCell *ptr;
     int NUM_MAPCELLS=0;
-    char parser;
+    char *parser;
     char charx[10],chary[10];
-    while (fscanf(f1,"%c",&parser)!=EOF){
-        if (parser=='\n')
-            NUM_MAPCELLS++;
+    while (fscanf(f1,"%s",&parser)!=EOF){
+        NUM_MAPCELLS++;
     }
     struct mapCell mapCells[NUM_MAPCELLS];
     rewind(f1);
