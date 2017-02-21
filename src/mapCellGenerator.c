@@ -35,21 +35,16 @@ int main (void){
         mapCells[i].ycoord=atoi(chary);
     }
     printf("youre good");
-    int fileIdx = fscanf(f2,"%3[^,],%s\n",charx,chary);
+    int fileIdx = fscanf(f2,"%[^,],%s\n",charx,chary);
+    i = 0;
     while (fileIdx != EOF){
-        printf("%d",NUM_MAPCELLS);
-        for (i=0;i!=NUM_MAPCELLS;i++){
-                printf("mapCells exists\n");
-            //printf("2");
-            if (atoi(charx)==mapCells[i].xcoord&&atoi(chary)==mapCells[i].ycoord){
-                mapCells[i].isCoastCell=true;
-                fileIdx = fscanf(f2,"%3[^,],%s\n",charx,chary);
-                printf("match\n");
-            }
-            printf("\n\n%d\n\n",(i));
+        if (atoi(charx)==mapCells[i].xcoord&&atoi(chary)==mapCells[i].ycoord){
+            mapCells[i].isCoastCell=true;
+            fileIdx = fscanf(f2,"%[^,],%s\n",charx,chary);
+            printf("match\n");
         }
-        //printf("miss good booty");
+        i++;
     }
-    printf("youre good");
+    printf("\n\nNumber of mapCells: %d\n\n",(i));
     return 0;
 }
