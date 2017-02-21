@@ -19,6 +19,7 @@ int main (void){
     FILE *f1=fopen("mapCells.txt","r");
     FILE *f2=fopen("coastCells.txt","r");
     int i=0;
+    int j=0;
     struct mapCell *ptr;
     int newlines=0;
     char parser;
@@ -27,14 +28,12 @@ int main (void){
         if (parser=='\n')
             newlines++;
     }
-    printf("look at this %d\n\n",newlines);
     struct mapCell mapCells[newlines];
     rewind(f1);
     while (fscanf(f1,"%3[^,],%s\n",charx,chary)!=EOF){
         i++;
         mapCells[i].xcoord=atoi(charx);
         mapCells[i].ycoord=atoi(chary);
-        //printf("%d,%d\n",mapCells[i].xcoord,mapCells[i].ycoord);
     }
     printf("youre good");
     int fileIdx = fscanf(f2,"%3[^,],%s\n",charx,chary);
@@ -44,7 +43,6 @@ int main (void){
                 printf("mapCells exists\n");
             //printf("2");
             if (atoi(charx)==mapCells[i].xcoord&&atoi(chary)==mapCells[i].ycoord){
-                //printf("3");
                 mapCells[i].isCoastCell=true;
                 fileIdx = fscanf(f2,"%3[^,],%s\n",charx,chary);
                 printf("match\n");
@@ -52,12 +50,6 @@ int main (void){
         printf("\n\n%d\n\n",(i));
         }
         //printf("miss good booty");
-    }
-    printf("youre good");
-    for (i=0;i!=sizeof(mapCells);i++){
-        if (mapCells[i].isCoastCell==true){
-            printf("%d,%d\n",mapCells[i].xcoord,mapCells[i].ycoord);
-        }
     }
     printf("youre good");
     return 0;
