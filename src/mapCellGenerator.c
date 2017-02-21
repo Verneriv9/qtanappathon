@@ -27,34 +27,31 @@ int main (void){
         if (parser=='\n')
             newlines++;
     }
-    printf("look at this %d\n\n",newlines);
     struct mapCell mapCells[newlines];
     rewind(f1);
     while (fscanf(f1,"%3[^,],%s\n",charx,chary)!=EOF){
         i++;
         mapCells[i].xcoord=atoi(charx);
         mapCells[i].ycoord=atoi(chary);
-        //printf("%d,%d\n",mapCells[i].xcoord,mapCells[i].ycoord);
     }
-    printf("youre good");
+    i=0;
+    int j=0;
     while (fscanf(f2,"%3[^,],%s\n",charx,chary)!=EOF){
-        //printf("1");
-        for (i=0;i!=sizeof(mapCells);i++){
-            //printf("2");
+        for (;i!=sizeof(mapCells);i++){
             if (atoi(charx)==mapCells[i].xcoord&&atoi(chary)==mapCells[i].ycoord){
-                //printf("3");
                 mapCells[i].isCoastCell=true;
+                j++;
+                break;
             }
-        printf("\n\n%d\n\n",(i));
-        }
-        printf("miss good booty");
-    }
-    printf("youre good");
-    for (i=0;i!=sizeof(mapCells);i++){
-        if (mapCells[i].isCoastCell==true){
-            printf("%d,%d\n",mapCells[i].xcoord,mapCells[i].ycoord);
         }
     }
+    struct mapCell coastCells[j];
+    i=0;
+    for (j=0;i!=sizeof(coastCells);j++)
+        if (mapCells[j].isCoastCell==true)
+            coastCells[i]=mapCells[j];
+
+
     printf("youre good");
     return 0;
 }
