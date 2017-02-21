@@ -47,11 +47,11 @@ int main (void){
     }
     struct mapCell coastCells[j];
     i=0;
-    for (j=0;i!=sizeof(coastCells);j++)
+    /*for (j=0;i!=sizeof(coastCells);j++)
         if (mapCells[j].isCoastCell==true)
             coastCells[i]=mapCells[j];
 
 
-    printf("youre good");
+    printf("youre good");*/
     return 0;
 }
